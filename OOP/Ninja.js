@@ -11,7 +11,11 @@ class Ninja {
     }
 
     showStats() {
-       let stats = ` Name: ${this.name}, \n strength: ${this.strength}, \n speed: ${this.speed}, \n health: ${this.health}`
+       let stats = ` 
+       Name: ${this.name}, 
+       \n strength: ${this.strength}, 
+       \n speed: ${this.speed}, 
+       \n health: ${this.health}`
         console.log(stats)
     }
 
