@@ -11,9 +11,9 @@ class Ninja {
     }
 
     showStats() {
-        let stats = ` Name: ${this.name}, 
-        \n strength: ${this.strength}, 
-        \n speed: ${this.speed}, 
+        let stats = ` Name: ${this.name},
+        \n strength: ${this.strength},
+        \n speed: ${this.speed},
         \n health: ${this.health}`
         console.log(stats)
     }
@@ -23,7 +23,7 @@ class Ninja {
     }
 
 }
-
+//import Ninja from OOP/Ninja
 class Sensei extends Ninja {
     constructor(name) {
         super(name, 210);
