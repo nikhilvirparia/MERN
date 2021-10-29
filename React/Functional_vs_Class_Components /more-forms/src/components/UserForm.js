@@ -52,9 +52,9 @@ const UserForm = (props) => {
                     <label>Confirm Password: </label>
                     <input type="text" onChange={ (e) => setConfirms(e.target.value) } value={ confirms } />
                     {
-                        confirms.length<8 && confirms.length >0?
-                            <p className= "text-danger">The passwords must match and be at least 8 characters.</p>
-                            : <p>  </p>
+                        password == confirms ?
+                            <p> </p>
+                            : <p className= "text-danger">The passwords must match</p>
                     }
                 </div>
             </form>
