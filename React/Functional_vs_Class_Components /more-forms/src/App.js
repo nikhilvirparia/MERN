@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <UserForm></UserForm>
+        <UserForm ></UserForm>
       </header>
     </div>
   );

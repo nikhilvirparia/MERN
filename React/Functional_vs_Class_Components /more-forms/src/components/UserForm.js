@@ -3,6 +3,7 @@ import React, { useState } from  'react';
 
 const UserForm = (props) => {
     //create a state variable for each input in the form
+    console.log(props)
     let [firstname, setFirstname] = useState("");
     let [lastname, setLastname] = useState("");
     let [email, setEmail] = useState("");
@@ -14,10 +15,14 @@ const UserForm = (props) => {
             <form>
                 <div>
                     <label>First Name: </label>
-                    <input type="text" onChange={ (e) => setFirstname(e.target.value) } value={ firstname } />
+                    <input type="text" onChange={ e => setFirstname(e.target.value) } value={ firstname } />
+
                     {
                         firstname.length<2 && firstname.length >0?
-                            <p className= "text-danger">Field must be at least 2 character</p>
+                            <>
+                                <p className= "text-danger">Field must be at least 2 character</p>
+                                <p>Hi</p>
+                            </>
                             : <p>  </p>
                     }
                 </div>
