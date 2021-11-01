@@ -50,7 +50,6 @@ const ToDoList = () => {
                 </form>
             </div>
 
-
             {
                 listofItem.map((item,i)=>{
                     return <div>
@@ -62,14 +61,8 @@ const ToDoList = () => {
                     </div>
                 })
             }
-
         </>
-
-
-
-
     )
-
 }
 
 export default ToDoList
