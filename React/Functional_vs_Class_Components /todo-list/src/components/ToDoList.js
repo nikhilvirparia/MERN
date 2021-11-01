@@ -4,7 +4,6 @@ const ToDoList = () => {
 
     let[formInfo, setFormInfo] = useState({
         listTask: "",
-        listItem: "",
         complete: false
     })
 
@@ -20,6 +19,13 @@ const ToDoList = () => {
     const handleSubmit = (e)=>{
         e.preventDefault() //this will prevent the form submission from reloading the page
         setlistofItem([...listofItem, formInfo])
+
+        setFormInfo ({
+            listTask: "",
+            complete: false
+        })
+
+
     }
 
     const deleteItem = (e,idx)=>{
@@ -43,7 +49,7 @@ const ToDoList = () => {
         <>
             <div>
                 <form onSubmit={handleSubmit}>
-                    <input onChange= {changeHandler} type="text" name="name" id="" className="form-control" />
+                    <input onChange= {changeHandler} type="text" name="listTask" value={formInfo.listTask} id="" className="form-control" />
 
                     <input type="submit" value="Add Task" className="btn btn-success mt-3" />
 
@@ -52,8 +58,8 @@ const ToDoList = () => {
 
             {
                 listofItem.map((item,i)=>{
-                    return <div>
-                        <p style={item.complete ? line : none}>{item.name}</p>
+                    return <div key={i}>
+                        <p style={item.complete ? line : none}>{item.listTask}</p>
                         <input type="checkbox" onClick={(e) => completedTask(e,item)}/>
                     <button onClick = {(e)=>deleteItem(e,i)} className="btn btn-danger">Delete</button>
                     <hr />
