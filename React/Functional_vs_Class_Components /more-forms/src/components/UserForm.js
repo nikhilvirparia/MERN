@@ -16,7 +16,6 @@ const UserForm = (props) => {
                 <div>
                     <label>First Name: </label>
                     <input type="text" onChange={ e => setFirstname(e.target.value) } value={ firstname } />
-
                     {
                         firstname.length<2 && firstname.length >0?
                             <>
