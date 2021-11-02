@@ -8,7 +8,6 @@ const BoxGenerator = props => {
         props.handleNewBox(color)
     };
 
-
     return(
         <>
         <div>
@@ -31,5 +30,4 @@ const BoxGenerator = props => {
         </>
     )
 }
-
 export default BoxGenerator

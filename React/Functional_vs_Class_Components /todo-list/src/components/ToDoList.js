@@ -25,7 +25,6 @@ const ToDoList = () => {
             complete: false
         })
 
-
     }
 
     const deleteItem = (e,idx)=>{
@@ -50,9 +49,7 @@ const ToDoList = () => {
             <div>
                 <form onSubmit={handleSubmit}>
                     <input onChange= {changeHandler} type="text" name="listTask" value={formInfo.listTask} id="" className="form-control" />
-
                     <input type="submit" value="Add Task" className="btn btn-success mt-3" />
-
                 </form>
             </div>
 
