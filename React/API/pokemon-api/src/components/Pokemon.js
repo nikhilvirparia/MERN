@@ -5,8 +5,7 @@ const Pokemon = () => {
     const [allPokemon, setAllPokemon] = useState([])
 
     const getPokemonInfo = () => {
-
-
+        
         fetch("https://pokeapi.co/api/v2/pokemon/?offset=0&limit=807")
             .then((response) => {
                 return response.json();
