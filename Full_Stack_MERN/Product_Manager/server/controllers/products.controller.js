@@ -1,9 +1,5 @@
 const { Product } = require('../models/products.model');
-module.exports.index = (request, response) => {
-    response.json({
-        message: "Hello World"
-    });
-}
+
 
 // The method below is new
 module.exports.createProduct = (request, response) => {

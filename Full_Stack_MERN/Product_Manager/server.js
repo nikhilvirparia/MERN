@@ -2,11 +2,11 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 
-
-app.use(express.json(), express.urlencoded({ extended: true }));
-app.use(cors());
-
 require("./server/config/mongoose.config");
+
+app.use(cors());
+app.use(express.json(), express.urlencoded({ extended: true }));
+
 
 require('./server/routes/products.routes')(app); // This is new
 
