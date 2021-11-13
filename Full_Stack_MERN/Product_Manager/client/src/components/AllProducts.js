@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const AllProducts = () => {
+const AllProducts = (props) => {
     
     //keep track of what is being typed via useState hook
     const [allProducts, setAllProducts] = useState([]); 
@@ -12,11 +12,11 @@ const AllProducts = () => {
         axios.get('http://localhost:8000/api/product')
         .then(res=>{
             setAllProducts(res.data)
-            console.log(res.data)
+            console.log("Response getting all products --> ", res.data)
         })
         .catch(err=>console.log(err))
 
-    },[]);
+    },[props.formSubmit]);
 
     //onChange to update firstName and lastName
     return (
@@ -25,7 +25,7 @@ const AllProducts = () => {
             {
                 allProducts.map(element => 
                     <p>
-                        <Link to={`/products/${element._id}`}>{element.title}</Link>
+                        <Link to={`/api/product/${element._id}`}>{element.title}</Link>
                     </p>
                 )}
         </div>
