@@ -6,6 +6,7 @@ const AllProducts = (props) => {
     
     //keep track of what is being typed via useState hook
     const [allProducts, setAllProducts] = useState([]); 
+    const [ deleteProductManger, setdeleteProductManger] = useState(false)
 
     //handler when the form is submitted
     useEffect(() => { 
@@ -16,7 +17,17 @@ const AllProducts = (props) => {
         })
         .catch(err=>console.log(err))
 
-    },[props.formSubmit]);
+    },[props.formSubmit, deleteProductManger]);
+
+    // Delete Product
+    const deleteProduct = (id) => {
+        axios.delete(`http://localhost:8000/api/product/${id}`)
+            .then(res => {
+                console.log(res) 
+                setdeleteProductManger(!deleteProductManger)
+            })
+            .catch(err => console.error(err));
+    }
 
     //onChange to update firstName and lastName
     return (
@@ -31,6 +42,7 @@ const AllProducts = (props) => {
                         <p>
                             <Link to={`/api/productedit/${element._id}`}>Edit</Link>
                         </p>
+                            <button onClick={(e)=>{deleteProduct(element._id)}}>Delete</button>
                     </>
                 )}
         </div>
