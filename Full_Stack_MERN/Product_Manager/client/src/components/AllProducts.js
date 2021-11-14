@@ -24,9 +24,14 @@ const AllProducts = (props) => {
             <h1> All Products </h1>
             {
                 allProducts.map(element => 
-                    <p>
-                        <Link to={`/api/product/${element._id}`}>{element.title}</Link>
-                    </p>
+                    <>
+                        <p>
+                            <Link to={`/api/product/${element._id}`}>{element.title}</Link>
+                        </p>
+                        <p>
+                            <Link to={`/api/productedit/${element._id}`}>Edit</Link>
+                        </p>
+                    </>
                 )}
         </div>
     )

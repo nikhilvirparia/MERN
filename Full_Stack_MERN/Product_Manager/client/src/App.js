@@ -10,6 +10,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import ProductsEdit from './components/ProductsEdit';
 
 
 function App() {
@@ -34,6 +35,11 @@ function App() {
                 
                 <ProductsInfo/>
 
+            </Route>
+            <Route exact path = "/api/productedit/:id">
+                
+                <ProductsEdit/>
+            
             </Route>
         </Switch>
 
