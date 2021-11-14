@@ -10,6 +10,13 @@ const ProductForm = (props) => {
         description: ""
     })
 
+    // Validation 
+    const [formErrors, setFormErrors] = useState({
+        title: "",
+        price: "",
+        description: ""
+    })
+
     const changeHandler = (e) => {
         console.log("Information is changing")
         setFormInfo({
@@ -26,36 +33,48 @@ const ProductForm = (props) => {
         axios.post('http://localhost:8000/api/product', formInfo) 
             .then(res=> {
                     console.log(res)
-                    props.setFormSubmit(!props.formSubmit)
-                    
-                    setFormInfo({
-                        title:"",
-                        price:"",
-                        description:""
+
+                    if(res.data.errors) { // if the form is not field properly 
+                        setFormErrors(res.data.errors)
+                    } else {
+                        props.setFormSubmit(!props.formSubmit)
+                        setFormInfo({
+                            title:"",
+                            price:"",
+                            description:""
                     })
+
+                    }
                     
-                })
+            })
 
             .catch(err=>console.log(err))
     }
 
     //onChange to update firstName and lastName
     return (
+        <>
         <form onSubmit={onSubmitHandler}>
             <p>
                 <label>Title</label><br/>
                 <input type="text" onChange={changeHandler} name="title" value={formInfo.title}/>
+                <p> {formErrors.title?.message}</p>
             </p>
             <p>
                 <label>Price</label><br/>
                 <input type="text" onChange={changeHandler} name="price" value={formInfo.price}/>
+                <p> {formErrors.price?.message}</p>
             </p>
+
             <p>
                 <label>Description</label><br/>
                 <input type="text" onChange={changeHandler} name="description" value={formInfo.description}/>
+                <p> {formErrors.description?.message}</p>
             </p> 
+
             <input onChange={changeHandler} type="submit" value="Create"/>
         </form>
+        </>
     )
 }
 
