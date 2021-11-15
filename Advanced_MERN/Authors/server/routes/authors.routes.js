@@ -6,7 +6,7 @@ module.exports = function(app){
     app.get('/api/authors', AuthorsController.getAllAuthors);
 
     // Get One Authors
-    app.get('/api/authors/:id', AuthorsController.getOneAuthor);
+    app.get('/api/author/:id', AuthorsController.getOneAuthor);
     
     // Make Authors
     app.post('/api/authors/make', AuthorsController.createAuthor);
