@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import AllProducts from './components/AllProducts';
 import ProductsInfo from './components/ProductsInfo';
 import ProductForm from './components/ProductForm';
+import ProductsEdit from './components/ProductsEdit';
 
 import {
   BrowserRouter,
@@ -10,7 +11,6 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import ProductsEdit from './components/ProductsEdit';
 
 
 function App() {

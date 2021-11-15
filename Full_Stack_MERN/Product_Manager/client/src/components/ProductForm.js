@@ -42,14 +42,16 @@ const ProductForm = (props) => {
                             title:"",
                             price:"",
                             description:""
-                    })
-
+                        })
+                        setFormErrors({
+                            title: "",
+                            price: "",
+                            description:""
+                        })
                     }
-                    
             })
-
             .catch(err=>console.log(err))
-    }
+        }
 
     //onChange to update firstName and lastName
     return (

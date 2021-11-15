@@ -5,8 +5,8 @@ import axios from 'axios';
 const AllProducts = (props) => {
     
     //keep track of what is being typed via useState hook
-    const [allProducts, setAllProducts] = useState([]); 
-    const [ deleteProductManger, setdeleteProductManger] = useState(false)
+    const [ allProducts, setAllProducts ] = useState([]); 
+    const [ deleteProductManger, setdeleteProductManger ] = useState(false)
 
     //handler when the form is submitted
     useEffect(() => { 
