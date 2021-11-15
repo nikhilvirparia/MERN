@@ -12,8 +12,8 @@ const AllAuthors = (props) => {
     useEffect(() => { 
         axios.get('http://localhost:8000/api/authors')
         .then(res=>{
-            setAllAuthors(res.data)
             console.log("Response getting all authors --> ", res.data)
+            setAllAuthors(res.data)
         })
         .catch(err=>console.log(err))
 
@@ -38,17 +38,25 @@ const AllAuthors = (props) => {
             <p> Author </p>
             <p> Action available </p>
             {
-                allAuthors.map(element => 
+                allAuthors.map(element => {
+                    return(
                     <>
 
                     <div key={`${element._id}`}>
                         <p>
-                            <Link to={`/api/authoredit/${element._id}`}>Edit</Link>
+                            <h3>{element.name}</h3>
+                            <Link to={`/authors/edit/${element._id}`}>Edit</Link>
                         </p>
                             <button onClick={(e)=>{deleteAuthor(element._id)}}>Delete</button>
                     </div> 
 
                     </>
+                    )
+                }
+
+                
+                    
+                    
                 )}
         </div>
     )

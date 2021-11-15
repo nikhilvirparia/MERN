@@ -51,13 +51,7 @@ const AuthorEdit = (props) => {
                 if(res.data.errors) { // if the form is not field properly 
                     setFormErrors(res.data.errors)
                 } else {
-                    props.setFormSubmit(!props.formSubmit)
-                    setFormInfo({
-                        name:""
-                    })
-                    setFormErrors({
-                        name:""
-                    })
+                    
 
                     //redirect to "/" after creating a ninja
                     history.push("/")
